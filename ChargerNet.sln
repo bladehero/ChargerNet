@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChargerNet", "ChargerNet\Ch
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4073786B-D18F-424B-9D22-8DACF90F7B53}"
 	ProjectSection(SolutionItems) = preProject
+		ChargerNet\DatabaseSnapshots\ChargerNetDB.db = ChargerNet\DatabaseSnapshots\ChargerNetDB.db
 		ChargerNet\DatabaseScripts\Data Init.sql = ChargerNet\DatabaseScripts\Data Init.sql
 	EndProjectSection
 EndProject

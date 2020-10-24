@@ -2,7 +2,6 @@
 using ChargerNet.Services;
 using ChargerNet.Views;
 using System;
-using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 

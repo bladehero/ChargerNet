@@ -2,11 +2,7 @@
 using ChargerNet.Models;
 using ChargerNet.Services;
 using ChargerNet.Views;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
 namespace ChargerNet.ViewModels

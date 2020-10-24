@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ChargerNet.Models
+﻿namespace ChargerNet.Models
 {
     public class Item
     {

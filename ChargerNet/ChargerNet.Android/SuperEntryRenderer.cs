@@ -1,9 +1,4 @@
-﻿using System;
-using Android.Content;
-using Android.Graphics;
-using Android.Graphics.Drawables;
-using Android.Runtime;
-using Android.Widget;
+﻿using Android.Content;
 using ChargerNet.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;

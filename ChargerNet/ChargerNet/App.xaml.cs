@@ -5,7 +5,6 @@ using ChargerNet.Models;
 using System.IO;
 using System.Reflection;
 using ChargerNet.Globals;
-using SQLite;
 
 namespace ChargerNet
 {

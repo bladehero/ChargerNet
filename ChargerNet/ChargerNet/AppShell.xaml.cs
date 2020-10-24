@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ChargerNet.ViewModels;
-using ChargerNet.Views;
+﻿using ChargerNet.Views;
 using Xamarin.Forms;
 
 namespace ChargerNet
@@ -12,7 +9,6 @@ namespace ChargerNet
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
 
     }
