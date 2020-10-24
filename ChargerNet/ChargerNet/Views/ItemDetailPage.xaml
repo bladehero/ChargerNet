@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChargerNet.Views.ItemDetailPage"
+             xmlns:vm="clr-namespace:ChargerNet.ViewModels"
+             xmlns:model="clr-namespace:ChargerNet.Models" 
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:ItemDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Frame Padding="0,0,0,5">
+            <Grid Padding="10,10,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,7">
+                    <Label Text="Цена:" FontSize="Small" />
+                    <Label Text="{Binding Price}" FontSize="Small"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" IsVisible="{Binding IsSelected}" HorizontalOptions="End">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                        <Label Text="Продолжительность: " FontSize="9"/>
+                        <Label Text="{Binding SelectedDurationString}" FontSize="9" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,-7,0,0" HorizontalOptions="End">
+                        <Label Text="Стоимость: " FontSize="9"/>
+                        <Label Text="{Binding SelectedPriceString}" FontSize="9" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Frame>
+        <StackLayout Grid.Row="1" Padding="3,7,3,0">
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Бронировать:" FontSize="9" TextColor="Black" Margin="9,-5,9,-15"/>
+                    <Grid>
+                        <DatePicker MinimumDate="{Binding MinDate}" Date="{Binding ReservationDate, Mode=TwoWay}" Margin="5,0" />
+                        <Image Source="expand.png" WidthRequest="15" HorizontalOptions="End" Margin="0,3,15,0"/>
+                    </Grid>
+                </StackLayout>
+                <Frame Grid.Column="2" Padding="10,0" Margin="0,0,7,0" IsVisible="{Binding IsSelected}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Выбрать" VerticalOptions="Center" TextColor="Black"/>
+                        <Image Source="select.png" WidthRequest="15" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                              Command="{Binding Source={RelativeSource 
+                                                                AncestorType={x:Type vm:ItemDetailViewModel}}, 
+                                                                Path=Confirm}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+            <ScrollView>
+                <FlexLayout BindableLayout.ItemsSource="{Binding Items}" x:Name="ItemsListView" Wrap="Wrap" JustifyContent="Center" AlignItems="Center" AlignContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="2" Padding="3,5" x:DataType="model:UserCharger" BorderColor="#2196F3">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,-5">
+                                        <Label Text="{Binding ReservationTimeString}" Style="{DynamicResource ListItemTextStyle}" FontSize="12" />
+                                        <Label Text="-" Style="{DynamicResource ListItemTextStyle}" FontSize="12" Margin="-3,0"/>
+                                        <Label Text="{Binding ReservationTillTimeString}" Style="{DynamicResource ListItemTextStyle}" FontSize="12"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding DurationMinutesString}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="9" HorizontalOptions="End"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                              Command="{Binding Source={RelativeSource 
+                                                                                AncestorType={x:Type vm:ItemDetailViewModel}}, 
+                                                                                Path=ItemTapped}" 
+                                                              CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding Path=IsSelected}" Value="True">
+                                        <Setter Property="BackgroundColor" Value = "#bbdefb"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding Path=IsSelected}" Value="False">
+                                        <Setter Property="BackgroundColor" Value = "Transparent"/>
+                                    </DataTrigger>
+                                </Frame.Triggers>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </ScrollView>
+        </StackLayout>
+
+        <ContentView Grid.Row="2" Content="{Binding Map}"/>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ChargerNet.Views.ItemsPage" 
+             Title="{Binding Title}" 
+             xmlns:local="clr-namespace:ChargerNet.ViewModels" 
+             xmlns:model="clr-namespace:ChargerNet.Models" 
+             BackgroundColor="White" 
+             x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Найти" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <Grid Margin="7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Frame Margin="5,7" Padding="0">
+            <Expander IsExpanded="{Binding IsExpanded}">
+                <Expander.Header>
+                    <Grid Margin="7,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Параметры поиска" FontSize="16" />
+                        <Image Source="expand.png" HorizontalOptions="End" VerticalOptions="Start" Grid.Column="1" WidthRequest="22">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}" Value="True">
+                                    <Setter Property="Source" Value="collapse.png" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
+                </Expander.Header>
+                <Expander.ContentTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <BoxView HeightRequest="1" Color="LightGray" />
+                            <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+                                <Label Text="Наименование" FontSize="Micro" Margin="0,0,0,-15"/>
+                                <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" Placeholder="Наименование..." />
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,-15,0,0">
+                                    <CheckBox IsChecked="{Binding AllRegisteredSelected}" />
+                                    <Label Text="Включать забронированные мной" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Label Text="Цена" FontSize="Micro" Margin="0,0,0,-15" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Entry Text="{Binding PriceMin, Mode=TwoWay}" FontSize="Medium" Placeholder="От..." Keyboard="Numeric" />
+                                    <Entry Grid.Column="1" Text="{Binding PriceMax, Mode=TwoWay}" FontSize="Medium" Placeholder="До..." Keyboard="Numeric" />
+                                </Grid>
+                                <Label Text="Дата / Время / Длительность (мин.)" FontSize="Micro" Margin="0,0,0,-15"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <DatePicker MinimumDate="{Binding MinDate}" Date="{Binding ReservationDate, Mode=TwoWay}" />
+                                    <TimePicker Time="{Binding ReservationTime, Mode=TwoWay}" Grid.Column="1" />
+                                    <Entry Text="{Binding DurationMinutes, Mode=TwoWay}" Grid.Column="2" WidthRequest="60" Placeholder="Мин." Keyboard="Numeric" />
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </Expander.ContentTemplate>
+            </Expander>
+        </Frame>
+        <RefreshView Padding="0,10,0,0" Grid.Row="1" x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <ScrollView>
+                <FlexLayout BindableLayout.ItemsSource="{Binding Items}" x:Name="ItemsListView" Wrap="Wrap" JustifyContent="Center" AlignItems="Center" AlignContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="2" Padding="8,6" x:DataType="model:Charger">
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" FontSize="Caption" FontAttributes="Bold" />
+                                    <Label Text="{Binding PriceString}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Micro" HorizontalOptions="Center"/>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                      Command="{Binding Source={RelativeSource 
+                                                                        AncestorType={x:Type local:ItemsViewModel}}, 
+                                                                        Path=ItemTapped}" 
+                                                      CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+</ContentPage>
