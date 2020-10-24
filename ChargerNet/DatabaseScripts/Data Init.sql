@@ -1,4 +1,8 @@
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Театральная площадь', '190.0', '30.741495', '46.484605° ');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Куликово Поле', '150.0', '30.742222', '46.465012');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Аркадия', '160.0', '30.760533', '46.431563');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Средний фонтан', '130.0', '30.75404', '46.414121');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Дерибасовская', '180.0', '30.73271', '46.484535');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Театральная площадь', '190.0', '30.741495', '46.484605');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Соборная площадь', '180.0', '30.730514', '46.48379');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Ланжероновская', '170.0', '30.737516', '46.485029');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Осипова', '160.0', '30.745118', '46.476901');
@@ -14,12 +18,8 @@ INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES (
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Академика Глушко проспект', '120.0', '30.731887', '46.400052');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Фонтанская дорога', '120.0', '30.750816', '46.427272');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Солнечная', '110.0', '30.753918', '46.437043');
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Шевченко проспект', '110.0', '30.757547°', '46.442037');
+INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Шевченко проспект', '110.0', '30.757547', '46.442037');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Гагарина проспект', '110.0', '30.745345', '46.454876');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Парк Космонавтов', '100.0', '30.738615', '46.451895');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Люстдорфская дорога', '100.0', '30.727975', '46.448489');
 INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Академика Филатова', '100.0', '30.712281', '46.438684');
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Куликово Поле', '150.0', '30.742222', '46.465012');
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Аркадия', '160.0', '30.760533', '46.431563');
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Средний фонтан', '130.0', '30.75404', '46.414121');
-INSERT INTO "main"."Charger" ("Name", "Price", "Longitude", "Latitude") VALUES ('Дерибасовская', '180.0', '30.73271', '46.484535');
