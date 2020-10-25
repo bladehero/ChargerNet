@@ -168,15 +168,15 @@
                                                                         </StackLayout>
                                                                         <Label Text="{Binding DurationMinutesString}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="9" HorizontalOptions="End"/>
                                                                     </StackLayout>
-                                                                    <Image Source="x_mark.png" WidthRequest="14" Margin="3,0">
-                                                                        <!--<Image.GestureRecognizers>
+                                                                    <!--<Image Source="x_mark.png" WidthRequest="14" Margin="3,0">
+                                                                        <Image.GestureRecognizers>
                                                                             <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                                                       Command="{Binding Source={RelativeSource 
                                                                                                         AncestorType={x:Type local:ProfileViewModel}}, 
                                                                                                         Path=ItemTapped}" 
                                                                                       CommandParameter="{Binding .}"></TapGestureRecognizer>
-                                                                        </Image.GestureRecognizers>-->
-                                                                    </Image>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>-->
                                                                 </StackLayout>
                                                             </Frame>
                                                         </DataTemplate>
