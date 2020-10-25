@@ -6,3 +6,18 @@ Xamarin mini-application for checking-in chargers for a cars in Odessa city.
 
 ## Previous history of payments:
 ![](https://raw.githubusercontent.com/bladehero/ChargerNet/master/ChargerNet/Media/Part_2.gif)
+
+
+Platform: **Android only**
+
+### Stack of technologies:
+- .NET Standard 2.0
+- Xamarin.Forms
+- SQLite (SQL)
+- QRCoder (https://github.com/codebude/QRCoder)
+
+#### Main Principles used of SOLID and other architecture patterns:
+- Interface Segregation
+- Dependency Inversion
+- MVVM
+- Singleton
